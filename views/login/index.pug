@@ -1,0 +1,17 @@
+head
+  link(rel='stylesheet' type='text/css' href='style.css')
+.container
+  .login
+    .header
+      h1 Login
+    .main
+      form(action="/login" method="post")
+        input#username(name='phone' type='text' placeholder='Enter PhoneNumber')
+        br
+        input#password(name='password' type='password' placeholder='Enter Password')
+        br
+        a(href='/signup') Regist new account
+        br
+        button Login
+  .img(src="background.jpg")
+

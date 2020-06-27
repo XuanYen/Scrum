@@ -1,0 +1,41 @@
+extends ../layouts/common
+block content
+
+    if errors
+        each error in errors
+            .alert.alert-danger=error
+    .single-widget-container
+    section.widget.login-widget
+        header.text-align-center
+         h4 Sign up your account
+    .body
+      form.no-margin(action='/signup' method='post')
+        fieldset
+          .form-group
+            label(for='username') Username
+            .input-group
+              span.input-group-addon
+                i.glyphicon.glyphicon-user
+              input#Username.form-control.input-lg.input-transparent(type='Username' placeholder='Your Username' name='username')
+          .form-group
+            label(for='password') Password
+            .input-group.input-group-lg
+              span.input-group-addon
+                i.glyphicon.glyphicon-lock
+              input#Password.form-control.input-lg.input-transparent(type='password' placeholder='Your Password' name='password')
+          .form-group
+            label(for='email') Email
+            .input-group
+              span.input-group-addon
+                i.glyphicon.glyphicon-user
+              input#Email.form-control.input-lg.input-transparent(type='email' placeholder='Your Email' name='email')
+          .form-group
+            label(for='phone') Phone
+            .input-group
+              span.input-group-addon
+                i.glyphicon.glyphicon-user
+              input#Phone.form-control.input-lg.input-transparent(type='tel' placeholder='Your Phone' name='phone')
+          button.btn.btn-block.btn-lg.btn-danger(type='submit')
+            span.small-circle
+              i.glyphicon.glyphicon-play
+            small Sign Up

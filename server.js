@@ -10,10 +10,11 @@ const app = express();
 var mongoose = require('mongoose');
 mongoose.set('useFindAndModify', false);
 mongoose.set("useUnifiedTopology", true);
-mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost:27017/db', {useNewUrlParser: true});
 
-var loginRoute=require("./routes/book.route");
-var signupRoute=require("./routes/user.route");
+
+var signupRoute=require("./routes/signup.route");
+var loginRoute=require("./routes/login.route");
 
 var cookieParser = require('cookie-parser')
 
@@ -25,14 +26,12 @@ app.set('views','./views');
 app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 app.use(express.static('public'))
-app.use(sessionMiddleware);
 app.get('/',(req, res)=>res.render('index',{
     name: 'Hello books'
 }));
 
-app.use('/login', loginRoute);
 app.use('/signup', signupRoute);
-
+app.use('/login',loginRoute);
 
 // listen for requests :)
 app.listen(3000,()=>console.log('server listening on port'+3000));
