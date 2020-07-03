@@ -1,0 +1,24 @@
+extends ../layouts/common
+block content
+  .card
+  h3.card-header.text-center.font-weight-bold.text-uppercase.py-4 Transactions
+  .card-body
+    form
+      .form-group
+      span.table-add.float-right.mb-3.mr-2
+        a.text-success(href='#!')
+          i.fas.fa-plus.fa-2x(aria-hidden='true')
+      table.table.table-bordered.table-responsive-md.table-striped.text-center
+        thead
+          tr
+            th.texr-center Time
+            th.text-center Book title
+            th.text-center Sharer
+            th.text-center Receiver
+        tbody
+          each trans in transactions
+           tr
+            td.pt-3-half= trans.time
+            td.pt-3-half= trans.title
+            td.pt-3-half= trans.sharer
+            td.pt-3-half= trans.receiver

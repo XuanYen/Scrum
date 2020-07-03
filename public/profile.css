@@ -1,0 +1,26 @@
+.profile-container{
+	/* display: block; */
+	text-align: center;
+	margin: auto;
+}
+.profile-row{
+	text-align: center;
+}
+.profile-form{
+	padding: 50px;
+	display: inline-block;
+	background-color: teal;
+}
+input, button {
+    width: 300px;
+	height: 35px;
+	margin-bottom: 25px;
+	box-sizing: border-box;
+	outline: none;
+	border:1px solid #014670;
+	color: #014670;
+}
+
+button:hover, input:hover {
+	box-shadow: 3px 3px 3px rgba(1,70,112,.5);
+}

@@ -4,9 +4,8 @@ module.exports.postLogin=async (req,res)=>{
     var phone=req.body.phone;
     var password=req.body.password;
     var user=await User.findOne({phone});
-    console.log(user);
-    /*if(!user){
-        res.render('auth/login',{
+    if(!user){
+        res.render('login/index',{
             errors:[
                 'User does not exit.'
             ],
@@ -14,17 +13,21 @@ module.exports.postLogin=async (req,res)=>{
         });
         return;
     }
-    var temp=bcrypt.compareSync(user.password, hash);
-    if(!temp){
-        wrongLoginCount=wrongLoginCount+1;
-        await User.findByIdAndUpdate(user._id,{wrongLoginCount: wrongLoginCount})
-          res.render('auth/login',{
+    if(user.password!=password){
+          res.render('login/index',{
                 errors: [
                     'Wrong password'
                 ],
                 values: req.body
                 });
         return;
-    }*/
+    }
+    res.cookie('userId', user._id,{
+        signed: true
+    });
     res.redirect('/');
+}
+module.exports.logout=(res,req)=>{
+    res.clearCookie('userId');
+    res.status(200).redirect('/');
 }

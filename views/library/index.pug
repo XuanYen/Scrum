@@ -1,0 +1,47 @@
+extends ../layouts/common
+block content
+  if errors
+        each error in errors
+            .alert.alert-danger=error
+  .card
+  h3.card-header.text-center.font-weight-bold.text-uppercase.py-4 LIBRARY
+  .card-body
+    form(action='/library', method="post")
+      .form-group
+        input#key.form-control(type='text', name="key", placeholder='Search title', style="display: inline-block; width: 200px")
+        span
+          button.btn.btn-primary(style="color: white", type="submit") Search
+    a.btn.btn-light.mb-2(href="/upload") Upload your book to exchange
+      span.table-add.float-right.mb-3.mr-2
+        a.text-success(href='#!')
+          i.fas.fa-plus.fa-2x(aria-hidden='true')
+      p Total books: 
+        span.ml-2.badge.badge-dark= total
+      table.table.table-bordered.table-responsive-md.table-striped.text-center
+        thead
+          tr
+            th.texr-center Cover
+            th.text-center Book title
+            th.text-center Author name
+            th.text-center Categories
+            th.text-center Sharer
+            th.text-center Status
+            th.text-center Action
+        tbody
+          each book in books
+           tr
+            td.pt-3-half
+             img(src=book.cover, style="width: 40px; height: 40px")
+            td.pt-3-half= book.title
+            td.pt-3-half= book.author
+            td.pt-3-half= book.genre
+            td.pt-3-half= book.sharer
+            td.pt-3-half= book.status
+            td
+              span.table-remove
+                a.btn.btn-primary.btn-rounded.btn-sm.my-0(type='button',href="/exchange/"+book.id) Exchange
+  nav
+     ul.pagination.justify-content-center
+      each page in pages
+       li.page-item
+        a.page-link.btn-primary(href='?page='+page, style="color: black")= page 

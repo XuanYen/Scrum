@@ -1,4 +1,30 @@
 extends ./layouts/common.pug
 
 block content     
-    h1 This is library. Please let check
+    #carouselExampleCaptions.carousel.slide(data-ride='carousel')
+        ol.carousel-indicators
+            li.active(data-target='#carouselExampleCaptions', data-slide-to='0')
+            li(data-target='#carouselExampleCaptions', data-slide-to='1')
+            li(data-target='#carouselExampleCaptions', data-slide-to='2')
+        .carousel-inner
+            .carousel-item.active
+                .carousel-caption.d-none.d-md-block.alert.alert-info(style="opacity: 0.6")
+                    h5(role='alert', style="color: black") Let's exchange books with your fellow readers. 
+                img.d-block.w-100(src='slide1.png', alt='...', style="border-radius: 80px 0 80px 0")
+            .carousel-item
+                img.d-block.w-100(src='slide2.png', alt='...', style="border-radius: 80px 0 80px 0")
+                .carousel-caption.d-none.d-md-block.alert.alert-info(style="opacity: 0.6")
+                    h5(role='alert', style="color: black") Find out which books your fellow members are picking up to meet their reading goals.
+            .carousel-item
+                img.d-block.w-100(src='slide3.png', alt='...',style="border-radius: 80px 0 80px 0")
+                .carousel-caption.d-none.d-md-block.alert.alert-info(style="opacity: 0.6")
+                    h5(role='alert', style="color: black") Stay on trend with these reader favorites from the first half of 2020.
+        a.carousel-control-prev(href='#carouselExampleCaptions', role='button', data-slide='prev')
+            span.carousel-control-prev-icon(aria-hidden='true')
+            span.sr-only Previous
+        a.carousel-control-next(href='#carouselExampleCaptions', role='button', data-slide='next')
+            span.carousel-control-next-icon(aria-hidden='true')
+            span.sr-only Next
+    script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js', integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj', crossorigin='anonymous')
+    script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo', crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js', integrity='sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI', crossorigin='anonymous')

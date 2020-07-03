@@ -1,0 +1,31 @@
+extends ../layouts/common.pug
+
+block content    
+  head
+    link(rel='stylesheet' type='text/css' href='profile.css')
+  .profile-container
+    form.profile-form(action="/profile", method="POST", style="box-shadow: 0 0 25px 0",enctype="multipart/form-data")
+      .row
+        .col-xs-12.col-sm-6.col-md-6
+          .well.well-sm
+            .profile-row
+              .col-sm-6.col-md-4
+                img.img-rounded.img-responsive(src='profile.png', alt='')
+              .col-sm-6.col-md-8
+                input#username(type='text', name="username", placeholder= user.username)
+                br
+                input#phone(type='text', name="phone", placeholder= user.phone)
+                br
+                input#email(type='text', name="email", placeholder= user.email)
+                br
+                input#password(type='text', name="password", placeholder= user.password)
+                br
+                input#avatar(type='file', name="avatar", placeholder="Update avatar", style="color: white; border: white")
+                br
+                button.btn.btn-light.pb-4(type='submit') Update
+        .col-xs-12.col-sm-6.col-md-6
+          img(src= user.avatar, width="280px", height="280px")
+
+
+
+

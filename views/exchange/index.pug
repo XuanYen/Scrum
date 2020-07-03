@@ -1,0 +1,17 @@
+extends ../layouts/common
+block content
+    .card(style='width: 25rem;')
+        .card-header
+            | Sharer information
+        ul.list-group.list-group-flush
+            li.list-group-item
+                span Username:  
+                span= user.username
+            li.list-group-item
+                span Email:  
+                span= user.email
+            li.list-group-item
+                span Phone:  
+                span= user.phone
+    .alert.alert-primary(role='alert', style='width: 25rem') Contact via sharer's info to recieve this book.
+    a.btn.btn-danger(href="/transactions") View transaction
