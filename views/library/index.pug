@@ -4,17 +4,17 @@ block content
         each error in errors
             .alert.alert-danger=error
   .card
-  h3.card-header.text-center.font-weight-bold.text-uppercase.py-4 LIBRARY
+  h3.card-header.text-center.font-weight-bold.text-uppercase.py-4(style="background-color: #ff7f50d4; box-shadow: 0 0 25px 0 #FFC107") LIBRARY
   .card-body
     form(action='/library', method="post")
       .form-group
         input#key.form-control(type='text', name="key", placeholder='Search title', style="display: inline-block; width: 200px")
         span
-          button.btn(style="color: white; background-color: #fd7e14 ;border-color: #fd7e14",type="submit") Search
+          button.btn(style="color: white;margin-bottom: 8px; margin-left: 10px; background-color: #fd7e14 ;border-color: #fd7e14",type="submit") Search
       p Total books: 
         span.ml-2.badge.badge-dark= total
         span
-          a.btn.btn-light.mb-2(href="/upload") Upload your book to exchange
+          a.btn.btn-light.mb-2(href="/upload", style="margin-left: 30px") Upload your book to exchange
             span.table-add.float-right.mb-3.mr-2
               a.text-success(href='#!')
                 i.fas.fa-plus.fa-2x(aria-hidden='true')

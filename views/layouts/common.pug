@@ -7,21 +7,21 @@ html
         title Library
     body(style="background-image: linear-gradient(#fff3b0,#ffffff)")   
         nav.navbar.navbar-expand-sm.navbar-light(style="z-index: 10; font-weight: 400; background-color: #ff7f50 !important")
-                a.navbar-brand(href='/') Exchange Books
+                a.navbar-brand(href='/') Bookworm
                 button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', 
                 aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
                     span.navbar-toggler-icon
                 #navbarNav.collapse.navbar-collapse
                     ul.navbar-nav
                         li.nav-item
-                            a.nav-link(href='/',style="color: black") Home
+                            a.nav-link(href='/',style="color: white") Home
                         li.nav-item
-                            a.nav-link(href='/profile',style="color: black") Profile 
+                            a.nav-link(href='/profile',style="color: white") Profile 
                         li.nav-item
-                            a.nav-link.ml-100(href='/library',style="color: black") Library
+                            a.nav-link.ml-100(href='/library',style="color: white") Library
                         li.nav-item
-                            a.nav-link.ml-100(href='/transactions',style="color: black") Transactions
+                            a.nav-link.ml-100(href='/transactions',style="color: white") Transactions
                 span.text-right
-                    a.nav-link.ml-100(href='/login/logout', style="color: black") Logout                         
+                    a.nav-link.ml-100(href='/login/logout', style="color: white") Logout                         
         .container.pt-5
             block content

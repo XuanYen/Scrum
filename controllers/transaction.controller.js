@@ -13,6 +13,7 @@ module.exports.index=async (req,res)=>{
     for(var i=1;i<=(transactions.length)/perPage+1;i++){
         pages.push(i);
     };
+    var total= transactions.length;
     var changetrans=transactions.map(trans=>{
         let sharer=users.find(user=>user._id==trans.sharerid);
         let book=books.find(book=>book._id==trans.bookid);
@@ -20,9 +21,10 @@ module.exports.index=async (req,res)=>{
         let time= trans.time;
         var result={ title: book.title,sharer: sharer.username, receiver: receiver.username, time: time}
         return result;
-    }).slice(start,end)
+    }).slice(start,end);
     res.render("transactions/index",{
         transactions: changetrans,
+        total: total,
         pages,
         books,
         users

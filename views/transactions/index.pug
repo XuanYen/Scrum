@@ -1,8 +1,10 @@
 extends ../layouts/common
 block content
   .card
-  h3.card-header.text-center.font-weight-bold.text-uppercase.py-4 Transactions
+  h3.card-header.text-center.font-weight-bold.text-uppercase.py-4(style="background-color: #ff7f50d4; box-shadow: 0 0 25px 0 #FFC107") Transactions
   .card-body
+    p Total books: 
+      span.ml-2.badge.badge-dark= total
     form
       .form-group
       span.table-add.float-right.mb-3.mr-2
