@@ -3,11 +3,29 @@ module.exports.login=(req,res)=>res.render('login/index');
 module.exports.postLogin=async (req,res)=>{  
     var phone=req.body.phone;
     var password=req.body.password;
-    var user=await User.findOne({phone});
+    var user=await User.findOne({phone}); 
+    if(!phone){
+        res.render('login/index',{
+            errors:[
+                'Phone number is required'
+            ],
+            values: req.body
+        });
+        return;
+    }
     if(!user){
         res.render('login/index',{
             errors:[
                 'User does not exit.'
+            ],
+            values: req.body
+        });
+        return;
+    }
+    if(!password){
+        res.render('login/index',{
+            errors:[
+                'Password is required'
             ],
             values: req.body
         });
@@ -27,7 +45,9 @@ module.exports.postLogin=async (req,res)=>{
     });
     res.redirect('/');
 }
-module.exports.logout=(res,req)=>{
-    res.clearCookie('userId');
-    res.status(200).redirect('/');
+module.exports.logout=(req,res)=>{
+    res.cookie('userId', 0,{
+        maxAge: 0
+    });
+    res.redirect('/');
 }

@@ -3,6 +3,7 @@ const User = require("../models/user.model.js");
 const Transaction = require("../models/transaction.model.js");
 module.exports.index=async (req,res)=>{
     var books=await Book.find();
+    var total=books.length;
     var book= await Book.findById({_id: req.params.id});
     var errors=[];
     if(book.status=="Busy"){
@@ -12,6 +13,7 @@ module.exports.index=async (req,res)=>{
         res.render('library/index',{
             errors: errors,
             books: books,
+            total:total,
             pages: []
         })
         return;

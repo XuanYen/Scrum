@@ -1,5 +1,9 @@
 head
-    link(rel='stylesheet' type='text/css' href='style.css') 
+    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css")
+    link(rel='stylesheet' type='text/css' href='style.css')
+if errors
+  each error in errors
+    .alert.btn-primary=error 
 .container
     .login
       .header

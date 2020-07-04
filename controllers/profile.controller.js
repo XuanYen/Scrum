@@ -17,7 +17,6 @@ module.exports.postProfile=async (req,res)=>{
     let file = await cloudinary.uploader.upload(req.file.path);
     const fs = require('fs')
     fs.unlinkSync(req.file.path);
-    console.log(req.body);
     await User.findByIdAndUpdate(req.signedCookies.userId,{username: req.body.username, password: req.body.password, email: req.body.email, phone: req.body.phone, avatar: file.url})
     res.redirect('/profile')
 }

@@ -14,13 +14,14 @@ html
                 #navbarNav.collapse.navbar-collapse
                     ul.navbar-nav
                         li.nav-item
-                            a.nav-link(href='/') Home
+                            a.nav-link(href='/',style="color: black") Home
                         li.nav-item
-                            a.nav-link(href='/profile') Profile 
+                            a.nav-link(href='/profile',style="color: black") Profile 
                         li.nav-item
-                            a.nav-link.ml-100(href='/library') Library
+                            a.nav-link.ml-100(href='/library',style="color: black") Library
                         li.nav-item
-                            a.nav-link.ml-100(href='/transactions') Transactions 
-                                     
+                            a.nav-link.ml-100(href='/transactions',style="color: black") Transactions
+                span.text-right
+                    a.nav-link.ml-100(href='/login/logout', style="color: black") Logout                         
         .container.pt-5
             block content

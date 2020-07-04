@@ -25,7 +25,7 @@ module.exports.search= async (req,res)=>{
     };
     var key=req.body.key;
     var result=books.filter(ele=>{
-      return ele.title.indexOf(key)!=-1;
+      return ele.title.toLowerCase().indexOf(key.toLowerCase())!=-1;
     });
     var total=result.length;
     books=result.slice(start,end);
